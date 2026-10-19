@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-offwhite: #F5F5F0;
+  --color-black: #0C0E0C;
+  --color-charcoal: #161915;
+  --color-lime: #D1FF00;
+  --color-lime-soft: #BEE600;
+  --cubic-kinetic: cubic-bezier(0.16, 1, 0.3, 1);
+  --cubic-smooth: cubic-bezier(0.65, 0.05, 0, 1);
+}
+
+/* Custom Selection */
+::selection {
+  background-color: #D1FF00;
+  color: #0C0E0C;
+}
+
+::-moz-selection {
+  background-color: #D1FF00;
+  color: #0C0E0C;
+}
+
+/* Fluid base typography */
+html {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide scrollbar while preserving scrolling */
+body::-webkit-scrollbar {
+  width: 8px;
+}
+body::-webkit-scrollbar-track {
+  background: #0C0E0C;
+}
+body::-webkit-scrollbar-thumb {
+  background: #272B25;
+  border-radius: 4px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: #D1FF00;
+}
+
+/* Kinetic Neon Glow */
+.glow-lime {
+  box-shadow: 0 0 30px rgba(209, 255, 0, 0.35);
+}
+
+.glow-lime-sm {
+  box-shadow: 0 0 15px rgba(209, 255, 0, 0.25);
+}
+
+.glow-lime-text {
+  text-shadow: 0 0 20px rgba(209, 255, 0, 0.5);
+}
+
+/* Noise overlay */
+.bg-noise {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Organic Cut-outs & Masks */
+.organic-cut-corner {
+  clip-path: polygon(
+    0% 0%, 
+    calc(100% - 28px) 0%, 
+    100% 28px, 
+    100% 100%, 
+    28px 100%, 
+    0% calc(100% - 28px)
+  );
+}
+
+.organic-cut-corner-sm {
+  clip-path: polygon(
+    0% 0%, 
+    calc(100% - 16px) 0%, 
+    100% 16px, 
+    100% 100%, 
+    16px 100%, 
+    0% calc(100% - 16px)
+  );
+}
+
+/* Giant Footer Inverted Arch Mask (Lando Norris Inspired) */
+.footer-arch-mask {
+  clip-path: polygon(
+    0 40px,
+    50% 0,
+    100% 40px,
+    100% 100%,
+    0 100%
+  );
+}
+
+@media (min-width: 768px) {
+  .footer-arch-mask {
+    clip-path: polygon(
+      0 70px,
+      50% 0,
+      100% 70px,
+      100% 100%,
+      0 100%
+    );
+  }
+}
+
+/* Stretched kinetic typography */
+.font-stretch-expanded {
+  font-stretch: 125%;
+}
+
+/* Custom interactive button with kinetic offset text */
+.btn-magnetic {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s var(--cubic-kinetic);
+}
+
+.btn-magnetic:hover {
+  transform: translateY(-2px);
+}
+
+/* Hide default cursor on desktop when custom cursor is active */
+@media (min-width: 1025px) {
+  .has-custom-cursor,
+  .has-custom-cursor a,
+  .has-custom-cursor button,
+  .has-custom-cursor input,
+  .has-custom-cursor select {
+    cursor: none !important;
+  }
+}
